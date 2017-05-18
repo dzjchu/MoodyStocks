@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  MoodyStocks
 //
-//  Created by Code on 5/18/17.
+//  Created by Dan Chu on 5/18/17.
 //  Copyright © 2017 AlphaChron. All rights reserved.
 //
 
