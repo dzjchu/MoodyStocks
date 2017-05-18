@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Charts
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
+    @IBOutlet weak var barChartView: BarChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
