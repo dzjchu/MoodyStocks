@@ -22,20 +22,8 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ABb-xv-6jS" id="wPE-1U-n0v">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccs-So-jZd" customClass="BarChartView" customModule="Charts">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="ccs-So-jZd" firstAttribute="leading" secondItem="wPE-1U-n0v" secondAttribute="leading" id="7In-KI-zzs"/>
-                                        <constraint firstAttribute="trailing" secondItem="ccs-So-jZd" secondAttribute="trailing" id="gfu-V5-Ylu"/>
-                                        <constraint firstItem="ccs-So-jZd" firstAttribute="top" secondItem="wPE-1U-n0v" secondAttribute="top" id="lBz-4a-Kbw"/>
-                                        <constraint firstAttribute="bottom" secondItem="ccs-So-jZd" secondAttribute="bottom" id="zMf-Hq-mWv"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -44,9 +32,6 @@
                             <outlet property="delegate" destination="GXf-mV-ZQH" id="CT9-UX-XH3"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="barChartView" destination="ccs-So-jZd" id="Lgw-o9-it5"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNx-z6-K5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

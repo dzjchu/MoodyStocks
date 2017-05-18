@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import Charts
+import NaturalLanguageUnderstandingV1
 
 class ViewController: UITableViewController {
 
-    @IBOutlet weak var barChartView: BarChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,39 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD307E741ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD307E721ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework */; };
+		CD307E751ECE625C00448708 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD307E731ECE625C00448708 /* RestKit.framework */; };
 		CDF9858F1ECE4E52003BBB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF9858E1ECE4E52003BBB0D /* AppDelegate.swift */; };
 		CDF985911ECE4E52003BBB0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF985901ECE4E52003BBB0D /* ViewController.swift */; };
 		CDF985941ECE4E52003BBB0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDF985921ECE4E52003BBB0D /* Main.storyboard */; };
 		CDF985971ECE4E52003BBB0D /* MoodyStocks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDF985951ECE4E52003BBB0D /* MoodyStocks.xcdatamodeld */; };
 		CDF985991ECE4E52003BBB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDF985981ECE4E52003BBB0D /* Assets.xcassets */; };
 		CDF9859C1ECE4E52003BBB0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDF9859A1ECE4E52003BBB0D /* LaunchScreen.storyboard */; };
-		CDF985AC1ECE50EA003BBB0D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF985A91ECE5076003BBB0D /* Charts.framework */; };
-		CDF985AD1ECE50EA003BBB0D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDF985A91ECE5076003BBB0D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CDF985A81ECE5076003BBB0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CDF985A31ECE5076003BBB0D /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06165F241D8110E600722320;
-			remoteInfo = Charts;
-		};
-		CDF985AA1ECE5076003BBB0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CDF985A31ECE5076003BBB0D /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06165F2E1D8110E600722320;
-			remoteInfo = ChartsTests;
-		};
-		CDF985AE1ECE50EA003BBB0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CDF985A31ECE5076003BBB0D /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 06165F231D8110E600722320;
-			remoteInfo = Charts;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		CDF985B01ECE50EA003BBB0D /* Embed Frameworks */ = {
@@ -48,7 +24,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CDF985AD1ECE50EA003BBB0D /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CD307E721ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NaturalLanguageUnderstandingV1.framework; path = Carthage/Build/iOS/NaturalLanguageUnderstandingV1.framework; sourceTree = "<group>"; };
+		CD307E731ECE625C00448708 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
 		CDF9858B1ECE4E52003BBB0D /* MoodyStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodyStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF9858E1ECE4E52003BBB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDF985901ECE4E52003BBB0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +41,6 @@
 		CDF985981ECE4E52003BBB0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDF9859B1ECE4E52003BBB0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDF9859D1ECE4E52003BBB0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CDF985A31ECE5076003BBB0D /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,19 +48,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDF985AC1ECE50EA003BBB0D /* Charts.framework in Frameworks */,
+				CD307E741ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework in Frameworks */,
+				CD307E751ECE625C00448708 /* RestKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD307E711ECE625C00448708 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD307E721ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework */,
+				CD307E731ECE625C00448708 /* RestKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CDF985821ECE4E52003BBB0D = {
 			isa = PBXGroup;
 			children = (
 				CDF9858D1ECE4E52003BBB0D /* MoodyStocks */,
 				CDF9858C1ECE4E52003BBB0D /* Products */,
-				CDF985A31ECE5076003BBB0D /* Charts.xcodeproj */,
+				CD307E711ECE625C00448708 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,15 +96,6 @@
 			path = MoodyStocks;
 			sourceTree = "<group>";
 		};
-		CDF985A41ECE5076003BBB0D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CDF985A91ECE5076003BBB0D /* Charts.framework */,
-				CDF985AB1ECE5076003BBB0D /* ChartsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -130,11 +107,11 @@
 				CDF985881ECE4E52003BBB0D /* Frameworks */,
 				CDF985891ECE4E52003BBB0D /* Resources */,
 				CDF985B01ECE50EA003BBB0D /* Embed Frameworks */,
+				CD307E761ECE628600448708 /* Run Script */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CDF985AF1ECE50EA003BBB0D /* PBXTargetDependency */,
 			);
 			name = MoodyStocks;
 			productName = MoodyStocks;
@@ -168,35 +145,12 @@
 			mainGroup = CDF985821ECE4E52003BBB0D;
 			productRefGroup = CDF9858C1ECE4E52003BBB0D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = CDF985A41ECE5076003BBB0D /* Products */;
-					ProjectRef = CDF985A31ECE5076003BBB0D /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				CDF9858A1ECE4E52003BBB0D /* MoodyStocks */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		CDF985A91ECE5076003BBB0D /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = CDF985A81ECE5076003BBB0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CDF985AB1ECE5076003BBB0D /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = CDF985AA1ECE5076003BBB0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CDF985891ECE4E52003BBB0D /* Resources */ = {
@@ -211,6 +165,25 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CD307E761ECE628600448708 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RestKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NaturalLanguageUnderstandingV1.framework",
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CDF985871ECE4E52003BBB0D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -223,14 +196,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CDF985AF1ECE50EA003BBB0D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Charts;
-			targetProxy = CDF985AE1ECE50EA003BBB0D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CDF985921ECE4E52003BBB0D /* Main.storyboard */ = {
@@ -352,6 +317,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MoodyStocks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AlphaChron.MoodyStocks;
@@ -365,6 +334,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MoodyStocks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AlphaChron.MoodyStocks;
@@ -392,6 +365,7 @@
 				CDF985A21ECE4E52003BBB0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
