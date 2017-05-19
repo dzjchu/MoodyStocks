@@ -28,6 +28,7 @@ class ViewController: UITableViewController {
         
         // Send in a url and the searchterm used in the url
         // Will add the amount of articles to the 'numsDict' using the key 'term'
+        // This runs async, so we will need to refesh every couple of seconds for new items
         getNumberOfPosts(urlToRequest: urlToAnalyze, term: "Apple")
         
         getNumberOfPosts(urlToRequest: "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1495055830238&sort=relevancy&q=UAL%20site_type%3Anews%20%20language%3Aenglish", term: "UAL")
