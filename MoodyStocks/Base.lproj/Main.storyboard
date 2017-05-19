@@ -17,9 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <progressView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="AQ3-id-Rck">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </progressView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ABb-xv-6jS">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="30" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ABb-xv-6jS" id="wPE-1U-n0v">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -32,10 +36,13 @@
                             <outlet property="delegate" destination="GXf-mV-ZQH" id="CT9-UX-XH3"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="progressBar" destination="AQ3-id-Rck" id="00e-tZ-tF6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNx-z6-K5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="139"/>
+            <point key="canvasLocation" x="781.60000000000002" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
