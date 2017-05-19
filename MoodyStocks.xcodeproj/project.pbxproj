@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD307E741ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD307E721ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework */; };
-		CD307E751ECE625C00448708 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD307E731ECE625C00448708 /* RestKit.framework */; };
+		5D0249181ECF3D6400B75399 /* Carthage in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0249171ECF3D6400B75399 /* Carthage */; };
+		5D0249191ECF3DAA00B75399 /* NaturalLanguageUnderstandingV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD307E721ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework */; };
+		5D02491A1ECF3DAA00B75399 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD307E731ECE625C00448708 /* RestKit.framework */; };
 		CDF9858F1ECE4E52003BBB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF9858E1ECE4E52003BBB0D /* AppDelegate.swift */; };
 		CDF985911ECE4E52003BBB0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF985901ECE4E52003BBB0D /* ViewController.swift */; };
 		CDF985941ECE4E52003BBB0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDF985921ECE4E52003BBB0D /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5D0249171ECF3D6400B75399 /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
 		CD307E721ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NaturalLanguageUnderstandingV1.framework; path = Carthage/Build/iOS/NaturalLanguageUnderstandingV1.framework; sourceTree = "<group>"; };
 		CD307E731ECE625C00448708 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
 		CDF9858B1ECE4E52003BBB0D /* MoodyStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodyStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,8 +50,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD307E741ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework in Frameworks */,
-				CD307E751ECE625C00448708 /* RestKit.framework in Frameworks */,
+				5D0249191ECF3DAA00B75399 /* NaturalLanguageUnderstandingV1.framework in Frameworks */,
+				5D02491A1ECF3DAA00B75399 /* RestKit.framework in Frameworks */,
+				5D0249181ECF3D6400B75399 /* Carthage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +62,7 @@
 		CD307E711ECE625C00448708 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D0249171ECF3D6400B75399 /* Carthage */,
 				CD307E721ECE625C00448708 /* NaturalLanguageUnderstandingV1.framework */,
 				CD307E731ECE625C00448708 /* RestKit.framework */,
 			);
