@@ -8,7 +8,24 @@
 
 import UIKit
 
+
+
 class CustomCell: UITableViewCell {
     @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var leftView: UIView!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
+    func updateProgressBar(withRatio: Float){
+        if withRatio < 0.25{
+            progressBar.setProgress(withRatio + 0.5, animated: true)
+        }else {
+            progressBar.setProgress(withRatio, animated: true)
+        }
+    }
+
+
 }
+
+
+
+
