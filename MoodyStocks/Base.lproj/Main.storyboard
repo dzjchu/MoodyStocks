@@ -35,8 +35,17 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpO-dt-kZd">
                                                     <rect key="frame" x="135" y="0.0" width="240" height="43.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pure-css3-progress-bar" translatesAutoresizingMaskIntoConstraints="NO" id="VVk-iK-CZa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                        </imageView>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="VVk-iK-CZa" firstAttribute="leading" secondItem="BpO-dt-kZd" secondAttribute="leading" id="243-5W-0h9"/>
+                                                        <constraint firstAttribute="trailing" secondItem="VVk-iK-CZa" secondAttribute="trailing" id="mhj-F0-M7l"/>
+                                                        <constraint firstAttribute="bottom" secondItem="VVk-iK-CZa" secondAttribute="bottom" id="pa7-5k-Zkl"/>
+                                                        <constraint firstItem="VVk-iK-CZa" firstAttribute="top" secondItem="BpO-dt-kZd" secondAttribute="top" id="rD2-hN-foF"/>
                                                         <constraint firstAttribute="width" constant="240" id="xOG-yL-Sw3"/>
                                                     </constraints>
                                                 </view>
@@ -110,4 +119,7 @@
             <point key="canvasLocation" x="2128.8000000000002" y="49.925037481259373"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pure-css3-progress-bar" width="594" height="174"/>
+    </resources>
 </document>
