@@ -25,6 +25,44 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Q6-1m-9My">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="VmS-Mx-ggR" customClass="CustomCell" customModule="MoodyStocks" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VmS-Mx-ggR" id="797-76-Jf0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpO-dt-kZd">
+                                                    <rect key="frame" x="135" y="0.0" width="240" height="43.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="240" id="xOG-yL-Sw3"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PG-S4-xAU">
+                                                    <rect key="frame" x="8" y="8" width="127" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="BpO-dt-kZd" secondAttribute="trailing" id="4AL-vM-Qzp"/>
+                                                <constraint firstItem="9PG-S4-xAU" firstAttribute="top" secondItem="797-76-Jf0" secondAttribute="topMargin" id="HTN-Df-0Cj"/>
+                                                <constraint firstItem="BpO-dt-kZd" firstAttribute="top" secondItem="797-76-Jf0" secondAttribute="top" id="VGZ-E8-peD"/>
+                                                <constraint firstAttribute="bottom" secondItem="BpO-dt-kZd" secondAttribute="bottom" id="c7O-uS-XDl"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9PG-S4-xAU" secondAttribute="bottom" id="ojV-rZ-Buc"/>
+                                                <constraint firstItem="BpO-dt-kZd" firstAttribute="leading" secondItem="9PG-S4-xAU" secondAttribute="trailing" id="ron-LI-eeb"/>
+                                                <constraint firstItem="9PG-S4-xAU" firstAttribute="leading" secondItem="797-76-Jf0" secondAttribute="leadingMargin" id="zQ7-Nl-IT1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="leftView" destination="BpO-dt-kZd" id="Dxe-iQ-TzS"/>
+                                            <outlet property="rightLabel" destination="9PG-S4-xAU" id="yqf-FM-CZm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="QAQ-nZ-iaN" id="9ed-EE-6r6"/>
                                 </connections>

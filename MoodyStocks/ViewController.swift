@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Moody Stocks"
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+//      tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
         // Natural Lanaguage Understanding
         let username = "618ab670-193e-45ba-a9ec-66207f099279"
@@ -126,9 +126,9 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let stock = myStocks[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        cell.textLabel?.text = stock.value(forKeyPath: "symbol") as? String
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CustomCell
+        	cell.rightLabel?.text = stock.value(forKeyPath: "symbol") as? String
+        	cell.leftView.backgroundColor = UIColor.green
         return cell
     }
     
