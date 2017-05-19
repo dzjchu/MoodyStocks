@@ -24,14 +24,14 @@ class ViewController: UITableViewController {
         
         let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(username: username, password: password, version: version)
         
-        let urlToAnalyze = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1495055830238&sort=relevancy&q=apple%20site_type%3Anews%20%20language%3Aenglish"
+        let urlToAnalyze = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1495055830238&sort=relevancy&q=UAL%20site_type%3Anews%20%20language%3Aenglish"
         
         // Send in a url and the searchterm used in the url
         // Will add the amount of articles to the 'numsDict' using the key 'term'
         // This runs async, so we will need to refesh every couple of seconds for new items
         getNumberOfPosts(urlToRequest: urlToAnalyze, term: "Apple")
         
-        getNumberOfPosts(urlToRequest: "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1495055830238&sort=relevancy&q=UAL%20site_type%3Anews%20%20language%3Aenglish", term: "UAL")
+        getNumberOfPosts(urlToRequest: "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1495055830238&sort=relevancy&q=APPLE%20site_type%3Anews%20%20language%3Aenglish", term: "UAL")
         
         let features = Features(concepts: ConceptsOptions(limit: 5), sentiment:SentimentOptions(document: true, targets: ["UAL"]))
         let parameters = Parameters(features: features, url: urlToAnalyze)
@@ -69,7 +69,6 @@ class ViewController: UITableViewController {
             let index: Int = newString!.distance(from: newString!.startIndex, to: range.lowerBound)
             //cuts everything off from the comma to the end leaving you with a string that is the number and add to dict
             self.numsDict[term] = Int((newString?.substring(to: index))!)
-            
             print(self.numsDict)
         }
         task.resume()
