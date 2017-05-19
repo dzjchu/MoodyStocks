@@ -164,18 +164,18 @@ class ViewController: UIViewController {
             UIApplication.shared.delegate as? AppDelegate else {
                 return
         }
-        // 1
+        
         let managedContext =
             appDelegate.persistentContainer.viewContext
-        // 2
+        
         let entity =
             NSEntityDescription.entity(forEntityName: "Stock",
                                        in: managedContext)!
         let newStock = NSManagedObject(entity: entity,
                                      insertInto: managedContext)
-        // 3
+        
         newStock.setValue(symbol, forKeyPath: "symbol")
-        // 4
+        
         do {
             try managedContext.save()
             myStocks.append(newStock)
@@ -186,10 +186,54 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myStocks.count
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        	if editingStyle == .delete {
+            deleteStockIndexPath = indexPath
+            let stockToDelete = myStocks[indexPath.row]
+            print("\(stockToDelete)")
+            confirmDelete(stock: (stockToDelete.value(forKeyPath: "symbol") as? String)!)
+        }
+    }
+    
+    func handleDeleteStock(alertAction: UIAlertAction!) -> Void {
+        if let indexPath = deleteStockIndexPath {
+            tableView.beginUpdates()
+            myStocks.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            deleteStockIndexPath = nil
+            
+            tableView.endUpdates()
+        }
+    }
+    
+    func confirmDelete(stock: String) {
+        let alert = UIAlertController(title: "Delete Stock", message: "Are you sure you want to permanently delete \(stock)?", preferredStyle: .actionSheet)
+        
+        let DeleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: handleDeleteStock)
+        
+        
+        let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelDeleteStock)
+        
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func cancelDeleteStock(alertAction: UIAlertAction!) {
+        deleteStockIndexPath = nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
