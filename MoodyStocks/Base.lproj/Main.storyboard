@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="o84-jk-sRQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="o84-jk-sRQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Your Stocks-->
         <scene sceneID="RMY-Uz-6FK">
             <objects>
                 <viewController id="QAQ-nZ-iaN" customClass="ViewController" customModule="MoodyStocks" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,11 +30,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VmS-Mx-ggR" id="797-76-Jf0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpO-dt-kZd">
-                                                    <rect key="frame" x="135" y="0.0" width="240" height="43.5"/>
+                                                    <rect key="frame" x="135" y="0.0" width="240" height="43"/>
                                                     <subviews>
                                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mtz-lJ-d6q">
                                                             <rect key="frame" x="45" y="20" width="150" height="2"/>
@@ -47,7 +47,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PG-S4-xAU">
-                                                    <rect key="frame" x="8" y="8" width="127" height="27.5"/>
+                                                    <rect key="frame" x="8" y="8" width="127" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -78,12 +78,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lfU-aR-BBD" firstAttribute="top" secondItem="3Q6-1m-9My" secondAttribute="bottom" id="0L0-YE-N5s"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3Q6-1m-9My" secondAttribute="trailing" constant="-16" id="EEl-Wy-SdQ"/>
+                            <constraint firstItem="3Q6-1m-9My" firstAttribute="leading" secondItem="LUa-CH-kNH" secondAttribute="leading" id="Iei-i7-DjB"/>
                             <constraint firstItem="3Q6-1m-9My" firstAttribute="top" secondItem="Sur-Yp-uH0" secondAttribute="bottom" constant="-64" id="WEy-Hv-gWF"/>
-                            <constraint firstItem="3Q6-1m-9My" firstAttribute="leading" secondItem="LUa-CH-kNH" secondAttribute="leadingMargin" constant="-16" id="ss8-oy-0oa"/>
+                            <constraint firstAttribute="trailing" secondItem="3Q6-1m-9My" secondAttribute="trailing" id="XUk-58-dyy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wyI-QE-MO7">
+                    <navigationItem key="navigationItem" title="Your Stocks" id="wyI-QE-MO7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2GP-jH-b0v">
                             <connections>
                                 <action selector="addButtonPressed:" destination="QAQ-nZ-iaN" id="i8w-yc-vF8"/>
