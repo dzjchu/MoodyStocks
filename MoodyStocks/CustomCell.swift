@@ -10,7 +10,6 @@ import UIKit
 import NaturalLanguageUnderstandingV1
 import Foundation
 
-
 class CustomCell: UITableViewCell {
     @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var leftView: UIView!
@@ -26,17 +25,23 @@ class CustomCell: UITableViewCell {
         }
     }
 
-    
     //1: get number of articles
     //2: Call Watson 
     //3: Update progessBar
+    //4: Update mood
     
-    
-    func getNumberOfNewsCounts(url1: String, url2: String, term: String){
-        getNumberOfPosts(urlToRequest: url1, term: term, maxCall: false)
-        getNumberOfPosts(urlToRequest: url2, term: term+"Max", maxCall: true)
+    func getNumberOfNewsCounts(term: String){
+        let urlShort = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1495055830238&sort=relevancy&q=\(term)%20site_type%3Anews%20%20language%3Aenglish"
+        let urlNumCount = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1492625498800&sort=crawled&q=\(term)%C2%A0%20language%3Aenglish%20site_type%3Anews"
+        getNumberOfPosts(urlToRequest: urlShort, term: term, maxCall: false)
+        getNumberOfPosts(urlToRequest: urlNumCount, term: term+"Max", maxCall: true)
     }
     
+    
+    //Get Count from JSON
+    
+    // Send in a url and the searchterm used in the url
+    // Will add the amount of articles to the 'numsDict' using the key 'term'
     func getNumberOfPosts(urlToRequest: String, term: String, maxCall: Bool){
         
         let url4 = URL(string: urlToRequest)!
@@ -70,6 +75,7 @@ class CustomCell: UITableViewCell {
             if maxCall{
                 DispatchQueue.main.async {
                     self.callsOnWatson(urlInput: term)
+                    self.updateProgressBar(withRatio: 0.9)
                 }
             }
             
@@ -78,11 +84,8 @@ class CustomCell: UITableViewCell {
         task.resume()
     }
     
-    
     func callsOnWatson(urlInput: String){
         let urlShort = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1495055830238&sort=relevancy&q=\(urlInput)%20site_type%3Anews%20%20language%3Aenglish"
-        let urlNumCount = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1492625498800&sort=crawled&q=\(urlInput)%C2%A0%20language%3Aenglish%20site_type%3Anews"
-        
         
         // Natural Lanaguage Understanding
         let username = "618ab670-193e-45ba-a9ec-66207f099279"
@@ -91,26 +94,17 @@ class CustomCell: UITableViewCell {
         
         let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(username: username, password: password, version: version)
         
-        let urlToAnalyze = urlShort
-        
-        //Get Count from JSON
-        
-        // Send in a url and the searchterm used in the url
-        // Will add the amount of articles to the 'numsDict' using the key 'term'
-        // This runs async, so we will need to refesh every couple of seconds for new items
-        getNumberOfNewsCounts(url1: urlShort, url2: urlNumCount, term: urlInput)
-        
         let features = Features(concepts: ConceptsOptions(limit: 5), sentiment:SentimentOptions(document: true, targets: ["aapl"]))
-        let parameters = Parameters(features: features, url: urlToAnalyze)
+        let parameters = Parameters(features: features, url: urlShort)
         
         let failure = { (error: Error) in print(error) }
         naturalLanguageUnderstanding.analyzeContent(withParameters: parameters, failure: failure) {
             results in
+            self.leftView.backgroundColor = UIColor.red
             print (results)
         }
     }
 }
-
 
 extension String {
     func index(from: Int) -> Index {

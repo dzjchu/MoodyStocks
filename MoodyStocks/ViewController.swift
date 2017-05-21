@@ -153,10 +153,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
             cell.symbol = (cell.rightLabel.text)!
         	cell.leftView.backgroundColor = UIColor.green
         
-        let urlShort = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1495055830238&sort=relevancy&q=\(cell.symbol)%20site_type%3Anews%20%20language%3Aenglish"
-        let urlNumCount = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1492625498800&sort=crawled&q=\(cell.symbol)%C2%A0%20language%3Aenglish%20site_type%3Anews"
+
         
-            cell.getNumberOfNewsCounts(url1: urlShort, url2: urlNumCount, term: cell.symbol)
+            cell.getNumberOfNewsCounts(term: cell.symbol)
 //        //pull out stuff
 //        
 //        let stockNum = stock.value(forKeyPath: "symbol") as? String
