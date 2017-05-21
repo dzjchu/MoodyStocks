@@ -15,6 +15,7 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var progressBar: UIProgressView!
+    var symbol: String = ""
     var numsDict : Dictionary<String, Int> = Dictionary()
 
     func updateProgressBar(withRatio: Float){
@@ -25,6 +26,11 @@ class CustomCell: UITableViewCell {
         }
     }
 
+    
+    //1: get number of articles
+    //2: Call Watson 
+    //3: Update progessBar
+    
     
     func getNumberOfNewsCounts(url1: String, url2: String, term: String){
         getNumberOfPosts(urlToRequest: url1, term: term, maxCall: false)
@@ -63,7 +69,7 @@ class CustomCell: UITableViewCell {
             
             if maxCall{
                 DispatchQueue.main.async {
-//                    tableView.reloadData()
+                    self.callsOnWatson(urlInput: term)
                 }
             }
             
