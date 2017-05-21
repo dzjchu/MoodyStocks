@@ -151,7 +151,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CustomCell
         	cell.rightLabel?.text = stock.value(forKeyPath: "symbol") as? String
             cell.symbol = (cell.rightLabel.text)!
-        	cell.leftView.backgroundColor = UIColor.green
+            cell.setBgColor()
         
 
         

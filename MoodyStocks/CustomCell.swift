@@ -16,7 +16,9 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var progressBar: UIProgressView!
     var symbol: String = ""
     var numsDict : Dictionary<String, Int> = Dictionary()
-
+    let green = UIColor(red:0.33, green:0.76, blue:0.37, alpha:1.0)
+    let red = UIColor(red:0.33, green:0.76, blue:0.37, alpha:1.0)
+    
     func updateProgressBar(withRatio: Float){
         if withRatio < 0.25{
             progressBar.setProgress(withRatio + 0.5, animated: true)
@@ -29,6 +31,9 @@ class CustomCell: UITableViewCell {
     //2: Call Watson 
     //3: Update progessBar
     //4: Update mood
+    func setBgColor(Color: UIColor = UIColor(red:0.33, green:0.76, blue:0.37, alpha:1.0)){
+        self.leftView.backgroundColor = Color
+    }
     
     func getNumberOfNewsCounts(term: String){
         let urlShort = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1495055830238&sort=relevancy&q=\(term)%20site_type%3Anews%20%20language%3Aenglish"
@@ -75,6 +80,8 @@ class CustomCell: UITableViewCell {
             if maxCall{
                 DispatchQueue.main.async {
                     self.callsOnWatson(urlInput: term)
+                    
+                    //UPDATE ME
                     self.updateProgressBar(withRatio: 0.9)
                 }
             }
@@ -100,6 +107,9 @@ class CustomCell: UITableViewCell {
         let failure = { (error: Error) in print(error) }
         naturalLanguageUnderstanding.analyzeContent(withParameters: parameters, failure: failure) {
             results in
+            
+            
+            //UPDATE ME
             self.leftView.backgroundColor = UIColor.red
             print (results)
         }
