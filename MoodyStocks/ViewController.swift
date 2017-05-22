@@ -12,6 +12,8 @@ import CoreData
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 	var myStocks: [NSManagedObject] = []
+    
+    var deleteStockIndexPath: IndexPath? = nil
     //Loop from display
     
     override func viewDidLoad() {
@@ -97,77 +99,57 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myStocks.count
     }
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        	if editingStyle == .delete {
-//                deleteStockIndexPath = indexPath
-//            let stockToDelete = myStocks[indexPath.row]
-//            print("\(stockToDelete)")
-//            confirmDelete(stock: (stockToDelete.value(forKeyPath: "symbol") as? String)!)
-//        }
-//    }
-//
-//    func handleDeleteStock(alertAction: UIAlertAction!) -> Void {
-//        if let indexPath = deleteStockIndexPath {
-//            tableView.beginUpdates()
-//            myStocks.remove(at: indexPath.row)
-//            
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//            deleteStockIndexPath = nil
-//            
-//            tableView.endUpdates()
-//        }
-//    }
-//    
-//    func confirmDelete(stock: String) {
-//        let alert = UIAlertController(title: "Delete Stock", message: "Are you sure you want to permanently delete \(stock)?", preferredStyle: .actionSheet)
-//        
-//        let DeleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: handleDeleteStock)
-//        
-//        
-//        let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelDeleteStock)
-//        
-//        alert.addAction(DeleteAction)
-//        alert.addAction(CancelAction)
-//        
-//        self.present(alert, animated: true, completion: nil)
-//    }
-//    
-//    
-//    func cancelDeleteStock(alertAction: UIAlertAction!) {
-//        deleteStockIndexPath = nil
-//    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        	if editingStyle == .delete {
+                deleteStockIndexPath = indexPath
+            let stockToDelete = myStocks[indexPath.row]
+            print("\(stockToDelete)")
+            confirmDelete(stock: (stockToDelete.value(forKeyPath: "symbol") as? String)!)
+        }
+    }
+
+    func handleDeleteStock(alertAction: UIAlertAction!) -> Void {
+        if let indexPath = deleteStockIndexPath {
+            tableView.beginUpdates()
+            myStocks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            deleteStockIndexPath = nil
+            tableView.endUpdates()
+        }
+    }
+    
+    func confirmDelete(stock: String) {
+        let alert = UIAlertController(title: "Delete Stock", message: "Are you sure you want to permanently delete \(stock)?", preferredStyle: .actionSheet)
+        
+        let DeleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: handleDeleteStock)
+        
+        
+        let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelDeleteStock)
+        
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func cancelDeleteStock(alertAction: UIAlertAction!) {
+        deleteStockIndexPath = nil
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let stock = myStocks[indexPath.row]
-//        urlInput = (stock.value(forKeyPath: "symbol") as? String)!
-//        print (urlInput)
-//        callsOnWatson(urlInput: stock.value(forKeyPath: "symbol") as! String)
-//        print (stock)
-//        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CustomCell
         	cell.rightLabel?.text = stock.value(forKeyPath: "symbol") as? String
             cell.symbol = (cell.rightLabel.text)!
             cell.setBgColor()
-        
-
-        
             cell.getNumberOfNewsCounts(term: cell.symbol)
-//        //pull out stuff
-//        
-//        let stockNum = stock.value(forKeyPath: "symbol") as? String
-//        
-//        if (numsDict[stockNum!] != nil && numsDict.count > 0){
-//            let ratio = Float(Double(numsDict[stockNum!]!)/Double(numsDict[stockNum!]!))
-//            print (ratio)
-//            cell.updateProgressBar(withRatio: ratio)
-//        } else {
-//            print ("Error1")
-//        }
-//    
+            //pull out stuff
         return cell
     }
     

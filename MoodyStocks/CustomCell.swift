@@ -13,7 +13,7 @@ import Foundation
 class CustomCell: UITableViewCell {
     @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var leftView: UIView!
-    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var progressBar: UIProgressView!    
     var symbol: String = ""
     var numsDict : Dictionary<String, Int> = Dictionary()
     let green = UIColor(red:0.33, green:0.76, blue:0.37, alpha:1.0)
@@ -39,7 +39,7 @@ class CustomCell: UITableViewCell {
         let urlShort = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1495055830238&sort=relevancy&q=\(term)%20site_type%3Anews%20%20language%3Aenglish"
         let urlNumCount = "https://webhose.io/filterWebContent?token=fc746d99-b259-4b82-925e-8128046b5b0e&format=json&ts=1492625498800&sort=crawled&q=\(term)%C2%A0%20language%3Aenglish%20site_type%3Anews"
         getNumberOfPosts(urlToRequest: urlShort, term: term, maxCall: false)
-        getNumberOfPosts(urlToRequest: urlNumCount, term: term+"Max", maxCall: true)
+        getNumberOfPosts(urlToRequest: urlNumCount, term: term, maxCall: true)
     }
     
     
@@ -65,6 +65,12 @@ class CustomCell: UITableViewCell {
             //Starting with the full string(dataString) convert to utf8
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             //get the index of that string + 16
+            //print(dataString!)
+            if((dataString?.length)! < 50){
+                let error = true
+                print("error")
+                return 
+            }
             let totalResultsIndex = (dataString?.range(of: "\"totalResults\": ", options: String.CompareOptions.backwards).location)! + 16
             //get the substring from that index to the end of the string (Chops the first ~8000 chars or whatever)
             let newString = dataString?.substring(from: totalResultsIndex)
@@ -73,16 +79,17 @@ class CustomCell: UITableViewCell {
             //sets up another index or something
             let index: Int = newString!.distance(from: newString!.startIndex, to: range.lowerBound)
             //cuts everything off from the comma to the end leaving you with a string that is the number and add to dict
-            self.numsDict[term] = Int((newString?.substring(to: index))!)
-            
-            print(self.numsDict)
-            
             if maxCall{
+                self.numsDict[term+"Max"] = Int((newString?.substring(to: index))!)
+            }else{
+                self.numsDict[term] = Int((newString?.substring(to: index))!)
+            }
+           print(self.numsDict)
+            
+            if maxCall && error != nil{
                 DispatchQueue.main.async {
                     self.callsOnWatson(urlInput: term)
-                    
-                    //UPDATE ME
-                    self.updateProgressBar(withRatio: 0.9)
+                    self.updateProgressBar(withRatio: Float(self.numsDict[self.symbol]!/self.numsDict[self.symbol+"Max"]!))
                 }
             }
             
@@ -101,13 +108,12 @@ class CustomCell: UITableViewCell {
         
         let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(username: username, password: password, version: version)
         
-        let features = Features(concepts: ConceptsOptions(limit: 5), sentiment:SentimentOptions(document: true, targets: ["aapl"]))
+        let features = Features(concepts: ConceptsOptions(limit: 5), sentiment:SentimentOptions(document: true, targets: [self.symbol]))
         let parameters = Parameters(features: features, url: urlShort)
         
         let failure = { (error: Error) in print(error) }
         naturalLanguageUnderstanding.analyzeContent(withParameters: parameters, failure: failure) {
             results in
-            
             
             //UPDATE ME
             self.leftView.backgroundColor = UIColor.red
