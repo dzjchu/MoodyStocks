@@ -17,13 +17,17 @@ class CustomCell: UITableViewCell {
     var symbol: String = ""
     var numsDict : Dictionary<String, Int> = Dictionary()
     let green = UIColor(red:0.33, green:0.76, blue:0.37, alpha:1.0)
-    let red = UIColor(red:0.33, green:0.76, blue:0.37, alpha:1.0)
+    let red = UIColor(red:0.82, green:0.33, blue:0.33, alpha:1.0)
     
     func updateProgressBar(withRatio: Float){
-        if withRatio < 0.25{
-            progressBar.setProgress(withRatio + 0.5, animated: true)
-        }else {
-            progressBar.setProgress(withRatio, animated: true)
+        print("ProgressBar --> \(withRatio)")
+        
+        DispatchQueue.main.async {
+            if withRatio < 0.25{
+                self.progressBar.setProgress(withRatio + 0.5, animated: true)
+            }else {
+                self.progressBar.setProgress(withRatio, animated: true)
+            }
         }
     }
 
@@ -31,7 +35,7 @@ class CustomCell: UITableViewCell {
     //2: Call Watson 
     //3: Update progessBar
     //4: Update mood
-    func setBgColor(Color: UIColor = UIColor(red:0.33, green:0.76, blue:0.37, alpha:1.0)){
+    func setBgColor(Color: UIColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1.0)){
         self.leftView.backgroundColor = Color
     }
     
@@ -48,7 +52,6 @@ class CustomCell: UITableViewCell {
     // Send in a url and the searchterm used in the url
     // Will add the amount of articles to the 'numsDict' using the key 'term'
     func getNumberOfPosts(urlToRequest: String, term: String, maxCall: Bool){
-        
         let url4 = URL(string: urlToRequest)!
         let session4 = URLSession.shared
         let request = NSMutableURLRequest(url: url4)
@@ -89,11 +92,15 @@ class CustomCell: UITableViewCell {
             if maxCall && error != nil{
                 DispatchQueue.main.async {
                     self.callsOnWatson(urlInput: term)
-                    self.updateProgressBar(withRatio: Float(self.numsDict[self.symbol]!/self.numsDict[self.symbol+"Max"]!))
+//                    self.updateProgressBar(withRatio: Float(self.numsDict[self.symbol]!/self.numsDict[self.symbol+"Max"]!))
                 }
             }
             
-            
+            //RANDOM NUM
+            if(maxCall){
+                self.callsOnWatson(urlInput: term)
+                self.updateProgressBar(withRatio: Float(arc4random()) / Float(UINT32_MAX))
+            }
         }
         task.resume()
     }
@@ -115,9 +122,18 @@ class CustomCell: UITableViewCell {
         naturalLanguageUnderstanding.analyzeContent(withParameters: parameters, failure: failure) {
             results in
             
+        DispatchQueue.main.async {
             //UPDATE ME
-            self.leftView.backgroundColor = UIColor.red
-            print (results)
+            let random  = Float(arc4random()) / Float(UINT32_MAX)
+            print(random)
+            if(random > 0.5){
+                self.leftView.backgroundColor = UIColor(red:0.82, green:0.33, blue:0.33, alpha:1.0)
+                print("me")
+            } else{
+                self.leftView.backgroundColor = UIColor(red:0.33, green:0.76, blue:0.37, alpha:1.0)
+                  print("gme")
+            }
+            }
         }
     }
 }
